@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html ng-app='imdb'>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>IMDB</title>
+		<link href="css/style.css" rel="stylesheet" />
+		<script src=”https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js”></script>
+		<script src="js/angular.js"></script>
+		<!--app-->
+		<script src="app/imdb.js"></script>
+		
+		<!--controllers-->
+		<script src="app/controllers/searchBox.js"></script>
+		
+		<!--services-->
+		<script src="app/Services/message.js"></script>
+		
+		<script src=”lub-tmdb.0.1.1.js”></script>
+	</head>
+	<body>
+	 
+			<div ng-controller="searchBox">
+								<div>
+					
+								<input ng-model='searchMovie'ng-change="getMovies()" />
+				
+				<!-- <button ng-click='getMovies()'>Search...</button> -->
+				<div ng-repeat="r in movies">
+					Title:{{r.title}}
+					<br>
+					ID:{{r.id}}
+										<br>
+					<img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{r.poster_path}}" width="100px" >
+					<hr>
+				</div>
+			</div>
+				<div>
+				<input ng-model='searchName'ng-change="getActors()" />
+				
+				<div ng-repeat="r in results">
+					<img src="https://image.tmdb.org/t/p/w235_and_h235_bestv2{{r.profile_path}}" width="100px" ><br>
+					ID:{{r.id}}
+					<br>
+					Name:{{r.name}}
+					<hr>
+				</div>
+
+			</div>
+</div>
+	</body>
+</html>
+
